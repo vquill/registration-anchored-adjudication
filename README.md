@@ -8,9 +8,11 @@
 - Ganache ：由 env.js 在进程内启动，无需单独安装
 
 ## 安装
+```
 npm install
-
+```
 ## 运行（在仓库根目录下）
+```
 node p2u/scale_N.js            # 4.2 规模开销：N=10~10^4 的登记与数值争议开销
 node p2u/scale_N.js 100000     # 4.2 N=10^5 一点（单独运行，约需 6 s）
 node p2u/fix_test.js           # 4.4 攻击阻断（表3）、4.5 受控来源裁决（表5）及各操作 Gas
@@ -21,6 +23,7 @@ node p2u/chen_test.js          # 4.6 文献[12]复现
 node p2u/zk_test.js            # 4.6 零知识对照
 node p2u/scale_test.js         # 4.7 直接存储对照（表7 中直接存储一列）
 node p2u/baseline_test.js      # 4.7 基线方案（表7 中基线一列）
+```
 
 ## 文件说明
 - p2u/Final.sol：本文合约；final_build.json 为其编译产物。
