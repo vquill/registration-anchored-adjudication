@@ -25,6 +25,6 @@ const proof=(L,i)=>{const p=[];for(let d=0;d<L.length-1;d++){p.push(L[d][i^1]);i
  const avg=a=>Math.round(a.reduce((p,q)=>p+q,0)/a.length);
  const res={admission:avg(ga),verdict:avg(gv),total:avg(ga)+avg(gv),tally:tl};
  fs.writeFileSync('p2u/baseline_result.json',JSON.stringify(res,null,1));
- console.log(`基线方案来源争议：准入 ${res.admission} Gas，TTP 裁决 ${res.verdict} Gas，合计 ${res.total} Gas（论文值 77 378）；${JSON.stringify(tl)}`);
+ console.log(`基线方案来源争议：准入 ${res.admission} Gas，TTP 裁决 ${res.verdict} Gas，合计 ${res.total} Gas（论文值 74 577）；${JSON.stringify(tl)}`);
  process.exit(0);
 })().catch(e=>{console.error(e.shortMessage||e.message);process.exit(1)});
