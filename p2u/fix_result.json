@@ -1,0 +1,83 @@
+{
+ "tally": {
+  "V 诚实披露": {
+   "2": 20
+  },
+  "V DB 篡改路径构陷": {
+   "2": 20
+  },
+  "V DO 披露不在树中的数值": {
+   "1": 20
+  },
+  "V DO 重复签名": {
+   "1": 20
+  },
+  "V DB 伪造第二签名": {
+   "2": 20
+  },
+  "V DB 伪造披露签名": {
+   "2": 20
+  },
+  "E 诚实依据待审查": {
+   "3": 20
+  },
+  "E DB 篡改路径构陷": {
+   "2": 20
+  },
+  "E DO 替换依据": {
+   "1": 20
+  },
+  "E DB 伪造回执": {
+   "2": 20
+  },
+  "E 截短路径（内部节点冒充）": {
+   "2": 20
+  },
+  "原设计 DB 篡改路径构陷": {
+   "1": 20
+  }
+ },
+ "gas": {
+  "registerTable": 44761,
+  "registerTask": 44789,
+  "registerDataset": 92293,
+  "disputeValue": 44090,
+  "disputeValue_DOfault": 44094,
+  "disputeDoubleSign": 39873,
+  "disputeEvidence_toTTP": 41726,
+  "disputeEvidence_DOfault": 41731,
+  "disputeReference": 50033,
+  "disputeReference_single": 46080,
+  "requestEvidence": 44252,
+  "respondEvidence": 43695,
+  "claimNoReceipt": 24647,
+  "verdict": 37003
+ },
+ "rewrite": "revert",
+ "wrongYear": "revert",
+ "wrongOwner": "revert",
+ "reRegister": "revert",
+ "dupTask": "revert",
+ "reference": {
+  "correct": {
+   "2": 28
+  },
+  "stale": {
+   "1": 9
+  },
+  "localDeclaredNational": {
+   "1": 1
+  },
+  "localDeclaredLocal": {
+   "2": 1
+  },
+  "caliberMismatch": {
+   "1": 1
+  },
+  "caliberCompliant": {
+   "2": 1
+  }
+ },
+ "refusalEarly": "revert",
+ "refusalLate": 1
+}
