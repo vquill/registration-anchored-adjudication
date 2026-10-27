@@ -52,9 +52,12 @@ const tamper=p=>{const q=p.slice();q[1]=rnd();return q;};
  const ref={}; for(let i=0;i<NR;i++){const tb=i===38?tableSH:i>=39?tableC2:table; const x=await run(Dm.connect(env.s.DB),I,'disputeReference',[id,i,reg(i),sc(vals[i]),sigs[i],proof(TV,i),tb,i>=38?0:i]); G(i<38?'disputeReference':'disputeReference_single',x.gas);
    const k=i===40?'caliberCompliant':i===39?'caliberMismatch':i===38?'localDeclaredLocal':i===16?'localDeclaredNational':stale.has(i)?'stale':'correct'; ref[k]=ref[k]||{}; ref[k][x.out]=(ref[k][x.out]||0)+1;} out.reference=ref;
  // 拒绝出具回执与 TTP 裁决
- G('requestEvidence',Number((await (await Dm.connect(env.s.DB).requestEvidence(id,30)).wait()).gasUsed));
+ // 证据请求须附 DO 对该记录的披露签名（与数值争议相同的披露包签名）
+ const req=async(i,signer)=>{const pv=proof(TV,i);const sg=signer?await signer.signMessage(ethers.getBytes(K(['bytes1','uint256','uint32','bytes32','bytes32'],['0x05',id,i,lv[i],HP(pv)]))):await dsig(i,lv[i],pv);return [id,i,lv[i],HP(pv),sg];};
+ G('requestEvidence',Number((await (await Dm.connect(env.s.DB).requestEvidenceWithDisclosure(...await req(30))).wait()).gasUsed));
  const pe30=proof(TE,30); G('respondEvidence',Number((await (await Dm.connect(env.s.DO).respondEvidence(id,30,ehs[30],salts[30],await rct(DO,mE(30,ehs[30],salts[30]),pe30),pe30)).wait()).gasUsed));
- await (await Dm.connect(env.s.DB).requestEvidence(id,31)).wait(); out.refusalEarly=(await run(Dm.connect(env.s.DB),I,'claimNoReceipt',[id,31])).out;
+ out.requestNoDisclosure=(await run(Dm.connect(env.s.DB),I,'requestEvidenceWithDisclosure',await req(32,DB))).out;   // 无 DO 披露签名 → 交易回退
+ await (await Dm.connect(env.s.DB).requestEvidenceWithDisclosure(...await req(31))).wait(); out.refusalEarly=(await run(Dm.connect(env.s.DB),I,'claimNoReceipt',[id,31])).out;
  await env.p.send('evm_increaseTime',[86401]); await env.p.send('evm_mine',[]); const cl=await run(Dm.connect(env.s.DB),I,'claimNoReceipt',[id,31]); out.refusalLate=cl.out; G('claimNoReceipt',cl.gas);
  const vm=K(['bytes1','address','uint256','uint32','uint8'],['0x09',await Dm.getAddress(),id,3,2]); G('verdict',(await run(Dm.connect(env.s.DB),I,'verdict',[id,3,2,await TTP.signMessage(ethers.getBytes(vm))])).gas);
  // 原设计（数值争议不绑定路径）在同样的构陷下
@@ -69,5 +72,6 @@ const tamper=p=>{const q=p.slice();q[1]=rnd();return q;};
  for(const k of Object.keys(out.tally)) console.log(k.padEnd(20),Object.entries(out.tally[k]).map(([o,c])=>`${nm[o]||o} ${c}/20`).join('，'));
  console.log('登记约束：年度不符',nm[out.wrongYear]||out.wrongYear,'；非任务主体',nm[out.wrongOwner]||out.wrongOwner,'；重复登记',nm[out.reRegister]||out.reRegister,'；重复任务',nm[out.dupTask]||out.dupTask);
  console.log('来源裁决：',JSON.stringify(ref),'；改写因子表 →',nm[out.rewrite]||out.rewrite,'；拒绝回执：时限前',nm[out.refusalEarly]||out.refusalEarly,'，逾期',nm[out.refusalLate]);
+ console.log('证据请求：无 DO 披露签名',nm[out.requestNoDisclosure]||out.requestNoDisclosure);
  console.log('Gas：',JSON.stringify(out.gas));
 })().catch(e=>{console.error(e.shortMessage||e.message);process.exit(1)});

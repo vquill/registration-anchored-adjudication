@@ -44,3 +44,6 @@ node p2u/baseline_test.js      # 4.7 基线方案（表6 中基线一列、图5�
 - zk_test.js 会打印 10 行 “Error in template RefConsistency”，对应 10 条错误引用无法生成证明，属预期结果。
 - scale_test.js 中本文一列来自早期合约，论文仅引用其直接存储一列；本文开销以 fix_test.js 为准。
 - 公开核查报告的网址见论文参考文献。
+
+## 更新记录
+- 2026-10：依据请求增加 DO 披露签名校验，与论文中“依据请求须附 DO 的有效披露签名”的描述一致。`p2u/Final.sol` 中原 `requestEvidence(id, i)` 改为 `requestEvidenceWithDisclosure(id, i, leaf, pathHash, dsig)`，`p2u/final_build.json` 已按原设置重新编译，`fix_test.js` 相应修改并增加“无披露签名的请求被拒绝”一项。其余函数未改动，论文中的判定结果与各项 Gas 不变。仓库中的 `*_result.json` 为论文所用版本，按新代码重跑时仅依据请求一项开销不同（论文未报告），含随机输入的单项相差十余 Gas。

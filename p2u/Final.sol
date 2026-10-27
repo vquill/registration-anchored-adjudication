@@ -107,7 +107,13 @@ contract DualMerkleArbitration {
         }
         emit Ruling(id, i, layer, out);
     }
-    function requestEvidence(uint256 id, uint32 i) external { evReq[keccak256(abi.encodePacked(id, i))] = uint64(block.timestamp); }
+    /// 证据请求须附 DO 对第 i 条记录的披露签名（与数值争议相同的披露包签名），未获披露者无法发起请求。
+    /// 函数名的选择器与原 requestEvidence(uint256,uint32) 同处分派表末位，其余函数的开销不受影响
+    function requestEvidenceWithDisclosure(uint256 id, uint32 i, bytes32 leaf, bytes32 pathHash, bytes calldata dsig) external {
+        bytes32 h = keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", keccak256(abi.encodePacked(bytes1(0x05), id, i, leaf, pathHash))));
+        require(ecrecover(h, uint8(dsig[64]), bytes32(dsig[0:32]), bytes32(dsig[32:64])) == ds[id].owner, "disclosure sig");   // 就地验签，不改动共用的 _signer
+        evReq[keccak256(abi.encodePacked(id, i))] = uint64(block.timestamp);
+    }
     /// DO 响应须提交与登记一致的依据（证明路径成立）及覆盖该路径的回执
     function respondEvidence(uint256 id, uint32 i, bytes32 eh, bytes32 salt, bytes calldata rcpt, bytes32[] calldata p) external {
         Dataset storage d = ds[id]; bytes32 m = keccak256(abi.encodePacked(TAG_E, id, i, eh, salt));
