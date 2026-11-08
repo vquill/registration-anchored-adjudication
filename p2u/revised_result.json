@@ -1,0 +1,151 @@
+{
+ "tally": {
+  "V 诚实披露": {
+   "2": 20
+  },
+  "V DB 篡改路径构陷": {
+   "0": 20
+  },
+  "V DO 披露不在树中的数值": {
+   "1": 20
+  },
+  "V DO 披露篡改值且叶子签名无效": {
+   "1": 20
+  },
+  "V DO 披露篡改值且叶子签名为高 s": {
+   "1": 20
+  },
+  "V DO 重复签名": {
+   "1": 20
+  },
+  "V DB 伪造第二签名": {
+   "0": 20
+  },
+  "V DB 伪造披露签名": {
+   "0": 20
+  },
+  "E 诚实依据待审查": {
+   "3": 20
+  },
+  "E DB 篡改路径构陷": {
+   "0": 20
+  },
+  "E DO 替换依据": {
+   "1": 20
+  },
+  "E DB 伪造回执": {
+   "0": 20
+  },
+  "E 截短路径（内部节点冒充）": {
+   "0": 20
+  },
+  "E DO 签署短路径回执": {
+   "1": 20
+  },
+  "R 过期记录叶子签名无效": {
+   "1": 9
+  },
+  "R 过期记录叶子签名为高 s": {
+   "1": 9
+  },
+  "V DO 少报深度后披露": {
+   "1": 5
+  }
+ },
+ "gas": {
+  "registerKey": 70731,
+  "depositBond": 44068,
+  "registerTable": 74361,
+  "registerTask": 49371,
+  "registerDataset": 97096,
+  "objectTable": 30390,
+  "confirmTable": 31939,
+  "activateTable": 29836,
+  "disputeValue": 57710,
+  "disputeValue_DOfault": 67998,
+  "disputeDoubleSign": 63534,
+  "disputeEvidence_toTTP": 121323,
+  "verdict_DOwins": 53941,
+  "disputeEvidence_DOfault": 64414,
+  "disputeReference": 63207,
+  "disputeReference_single": 58981,
+  "requestEvidence": 59149,
+  "respondEvidence": 53810,
+  "claimNoReceipt": 45442,
+  "verdict_DBwins": 62861,
+  "supersedeTable": 35535,
+  "disputeVersion": 76697,
+  "revokeTable": 35685,
+  "reviewReference": 50525,
+  "anchor": 44257,
+  "disputeValue_anchored": 62637
+ },
+ "checks": {
+  "rewriteTable": "revert",
+  "taskWithoutKey": "revert",
+  "wrongYear": "revert",
+  "wrongOwner": "revert",
+  "reRegister": "revert",
+  "dupTask": "revert",
+  "disputeDuringNotice": 0,
+  "disputeWhileChallenged": 0,
+  "confirmBeforeNotice": "revert",
+  "objectAfterNotice": "revert",
+  "repeatOutcome": 1,
+  "repeatBondDelta": "0.0",
+  "batchDupFaults": 5,
+  "batchDupBondDelta": "0.01",
+  "requestNoDisclosure": "revert",
+  "refusalEarly": "revert",
+  "claimByOther": "revert",
+  "refusalLate": 1,
+  "claimPayout": "0.02",
+  "repeatNoReceiptOutcome": 1,
+  "repeatNoReceiptBondDelta": "0.0",
+  "overwritePending": "revert",
+  "overwriteAbandoned": "成功",
+  "duplicateEscalation": "revert",
+  "verdictWrongWinnerSig": "revert",
+  "verdictOutcome": 1,
+  "bondAfterVerdict": "0.01",
+  "verdictReplay": "revert",
+  "reEscalateAfterClose": 3,
+  "repeatVerdictOutcome": 1,
+  "repeatVerdictBondDelta": "0.0",
+  "retroactiveCutover": "revert",
+  "reSupersede": "revert",
+  "refOnSuperseded": 1,
+  "versionOldDataset": 2,
+  "versionNewDataset": 1,
+  "refWithReplacement": 2,
+  "review": 2,
+  "reviewNoRuling": true,
+  "refRevokedNoReplacement": 4,
+  "refAfterRevocation": 1,
+  "valueUnanchoredAfterRevocation": 4,
+  "valueAnchoredAfterRevocation": 2,
+  "doubleSignAnchoredAfterRevocation": 1,
+  "registerWithRevokedKey": "revert",
+  "rotatedKeyTask": "成功"
+ },
+ "reference": {
+  "correct": {
+   "2": 28
+  },
+  "stale": {
+   "1": 9
+  },
+  "localDeclaredNational": {
+   "1": 1
+  },
+  "localDeclaredLocal": {
+   "2": 1
+  },
+  "caliberMismatch": {
+   "1": 1
+  },
+  "caliberCompliant": {
+   "2": 1
+  }
+ }
+}

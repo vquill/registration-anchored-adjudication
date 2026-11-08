@@ -1,0 +1,23 @@
+$ circom --version
+circom compiler 2.1.9
+$ circom zk/ref.circom --r1cs --O1 -o zk
+template instances: 220
+non-linear constraints: 2097
+linear constraints: 2596
+public inputs: 6
+private inputs: 9
+public outputs: 0
+wires: 4706
+labels: 7253
+Written successfully: zk/ref.r1cs
+Everything went okay
+
+$ node p2u/zk_info.js
+Curve: bn-128
+# of Wires: 4706
+# of Constraints: 4693
+# of Private Inputs: 9
+# of Public Inputs: 6
+# of Labels: 7253
+# of Outputs: 0
+# zkey: protocol groth16, nVars 4706, nPublic 6, domainSize 8192

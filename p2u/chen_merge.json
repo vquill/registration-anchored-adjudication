@@ -1,0 +1,44 @@
+{
+ "paper": {
+  "requestData": 66613,
+  "publishSenderProof": 99085,
+  "publishReceiverProof": 59629,
+  "makeDataAvailable": 154756,
+  "onChainArbitrate": 32602,
+  "offChainArbitrate": 35035
+ },
+ "repro": {
+  "requestData": 43624,
+  "publishSenderProof": 93954,
+  "publishReceiverProof": 71092,
+  "makeDataAvailable": 49223,
+  "onChainArbitrate": 34000,
+  "offChainArbitrate": 43778
+ },
+ "rounds": {
+  "1": {
+   "requestData": 43624,
+   "publishSenderProof": 93954,
+   "publishReceiverProof": 71092,
+   "makeDataAvailable": 49223,
+   "onChainArbitrate": 34000,
+   "offChainArbitrate": 43778
+  },
+  "2": {
+   "requestData": 43624,
+   "publishSenderProof": 93954,
+   "publishReceiverProof": 71092,
+   "makeDataAvailable": 49223,
+   "onChainArbitrate": 34000,
+   "offChainArbitrate": 43778
+  },
+  "3": {
+   "requestData": 43624,
+   "publishSenderProof": 93954,
+   "publishReceiverProof": 71092,
+   "makeDataAvailable": 49223,
+   "onChainArbitrate": 34000,
+   "offChainArbitrate": 43778
+  }
+ }
+}

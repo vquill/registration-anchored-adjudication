@@ -1,0 +1,201 @@
+{
+ "table6": {
+  "ours": {
+   "register": 74361,
+   "dispute": 63206,
+   "batch38": 590804,
+   "batchPerRecord": 15547,
+   "outcomes": [
+    2,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2
+   ]
+  },
+  "unpacked": {
+   "register": 889948,
+   "dispute": 54126,
+   "agreeWithOurs": true
+  },
+  "packed": {
+   "register": 174013,
+   "dispute": 54412,
+   "agreeWithOurs": true,
+   "batch38": 557927,
+   "batchPerRecord": 14682
+  },
+  "baseline": {
+   "admission": 82337,
+   "verdict": 44187,
+   "total": 126524
+  },
+  "breakEven": {
+   "unpacked": 89.8,
+   "packed": 11.3,
+   "packedBatchPerRecordDiff": 865
+  }
+ },
+ "scaleN": {
+  "register": {
+   "10": 97096,
+   "50": 97120,
+   "100": 97120,
+   "200": 97108,
+   "500": 97120,
+   "1000": 97120,
+   "2000": 97120,
+   "4000": 97120,
+   "5000": 97108,
+   "10000": 97120,
+   "100000": 97132
+  },
+  "dispute": {
+   "10": {
+    "gas": 56016,
+    "depth": 4
+   },
+   "50": {
+    "gas": 57653,
+    "depth": 6
+   },
+   "100": {
+    "gas": 58532,
+    "depth": 7
+   },
+   "200": {
+    "gas": 59351,
+    "depth": 8
+   },
+   "500": {
+    "gas": 60182,
+    "depth": 9
+   },
+   "1000": {
+    "gas": 61001,
+    "depth": 10
+   },
+   "2000": {
+    "gas": 61832,
+    "depth": 11
+   },
+   "4000": {
+    "gas": 62687,
+    "depth": 12
+   },
+   "5000": {
+    "gas": 63482,
+    "depth": 13
+   },
+   "10000": {
+    "gas": 64326,
+    "depth": 14
+   },
+   "100000": {
+    "gas": 66820,
+    "depth": 17
+   }
+  },
+  "full": {
+   "10": 43266,
+   "50": 104639,
+   "100": 180394,
+   "200": 331971,
+   "500": 790046,
+   "1000": 1566562,
+   "2000": 3166212,
+   "4000": 6551629,
+   "5000": "超出区块上限"
+  },
+  "sizes": {
+   "10": {
+    "dualTree": 303,
+    "singleTree": 367,
+    "wholeHash": 1740
+   },
+   "50": {
+    "dualTree": 367,
+    "singleTree": 431,
+    "wholeHash": 8700
+   },
+   "100": {
+    "dualTree": 399,
+    "singleTree": 463,
+    "wholeHash": 17400
+   },
+   "200": {
+    "dualTree": 431,
+    "singleTree": 495,
+    "wholeHash": 34800
+   },
+   "500": {
+    "dualTree": 463,
+    "singleTree": 527,
+    "wholeHash": 87000
+   },
+   "1000": {
+    "dualTree": 495,
+    "singleTree": 559,
+    "wholeHash": 174000
+   },
+   "2000": {
+    "dualTree": 527,
+    "singleTree": 591,
+    "wholeHash": 348000
+   },
+   "4000": {
+    "dualTree": 559,
+    "singleTree": 623,
+    "wholeHash": 696000
+   },
+   "5000": {
+    "dualTree": 591,
+    "singleTree": 655,
+    "wholeHash": 870000
+   },
+   "10000": {
+    "dualTree": 623,
+    "singleTree": 687,
+    "wholeHash": 1740000
+   },
+   "100000": {
+    "dualTree": 719,
+    "singleTree": 783,
+    "wholeHash": 17400000
+   }
+  }
+ }
+}

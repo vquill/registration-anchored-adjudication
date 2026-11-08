@@ -1,0 +1,32 @@
+{
+ "b1": {
+  "records": 1,
+  "faults": 1,
+  "gas": 53701
+ },
+ "b2": {
+  "records": 2,
+  "faults": 2,
+  "gas": 72034
+ },
+ "b5": {
+  "records": 5,
+  "faults": 5,
+  "gas": 127129
+ },
+ "wrong10": {
+  "records": 10,
+  "faults": 10,
+  "gas": 218952
+ },
+ "b20": {
+  "records": 20,
+  "faults": 10,
+  "gas": 380260
+ },
+ "all38": {
+  "records": 38,
+  "faults": 10,
+  "gas": 671615
+ }
+}

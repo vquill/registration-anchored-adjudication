@@ -1,0 +1,653 @@
+{
+ "gas": {
+  "registerKey": 70731,
+  "depositBond": 44068,
+  "registerTable": 74361,
+  "registerTask": 49371,
+  "registerDataset": 97096,
+  "objectTable": 30390,
+  "confirmTable": 31939,
+  "activateTable": 29836,
+  "disputeValue": 57710,
+  "disputeValue_DOfault": 67998,
+  "disputeDoubleSign": 63534,
+  "disputeEvidence_toTTP": 121323,
+  "verdict_DOwins": 53941,
+  "disputeEvidence_DOfault": 64414,
+  "disputeReference": 63207,
+  "disputeReference_single": 58981,
+  "requestEvidence": 59149,
+  "respondEvidence": 53810,
+  "claimNoReceipt": 45442,
+  "verdict_DBwins": 62861,
+  "supersedeTable": 35535,
+  "disputeVersion": 76697,
+  "revokeTable": 35685,
+  "reviewReference": 50525,
+  "anchor": 44257,
+  "disputeValue_anchored": 62637
+ },
+ "checks": {
+  "rewriteTable": "revert",
+  "taskWithoutKey": "revert",
+  "wrongYear": "revert",
+  "wrongOwner": "revert",
+  "reRegister": "revert",
+  "dupTask": "revert",
+  "disputeDuringNotice": 0,
+  "disputeWhileChallenged": 0,
+  "confirmBeforeNotice": "revert",
+  "objectAfterNotice": "revert",
+  "repeatOutcome": 1,
+  "repeatBondDelta": "0.0",
+  "batchDupFaults": 5,
+  "batchDupBondDelta": "0.01",
+  "requestNoDisclosure": "revert",
+  "refusalEarly": "revert",
+  "claimByOther": "revert",
+  "refusalLate": 1,
+  "claimPayout": "0.02",
+  "repeatNoReceiptOutcome": 1,
+  "repeatNoReceiptBondDelta": "0.0",
+  "overwritePending": "revert",
+  "overwriteAbandoned": "成功",
+  "duplicateEscalation": "revert",
+  "verdictWrongWinnerSig": "revert",
+  "verdictOutcome": 1,
+  "bondAfterVerdict": "0.01",
+  "verdictReplay": "revert",
+  "reEscalateAfterClose": 3,
+  "repeatVerdictOutcome": 1,
+  "repeatVerdictBondDelta": "0.0",
+  "retroactiveCutover": "revert",
+  "reSupersede": "revert",
+  "refOnSuperseded": 1,
+  "versionOldDataset": 2,
+  "versionNewDataset": 1,
+  "refWithReplacement": 2,
+  "review": 2,
+  "reviewNoRuling": true,
+  "refRevokedNoReplacement": 4,
+  "refAfterRevocation": 1,
+  "valueUnanchoredAfterRevocation": 4,
+  "valueAnchoredAfterRevocation": 2,
+  "doubleSignAnchoredAfterRevocation": 1,
+  "registerWithRevokedKey": "revert",
+  "rotatedKeyTask": "成功"
+ },
+ "tally": {
+  "V 诚实披露": {
+   "2": 20
+  },
+  "V DB 篡改路径构陷": {
+   "0": 20
+  },
+  "V DO 披露不在树中的数值": {
+   "1": 20
+  },
+  "V DO 披露篡改值且叶子签名无效": {
+   "1": 20
+  },
+  "V DO 披露篡改值且叶子签名为高 s": {
+   "1": 20
+  },
+  "V DO 重复签名": {
+   "1": 20
+  },
+  "V DB 伪造第二签名": {
+   "0": 20
+  },
+  "V DB 伪造披露签名": {
+   "0": 20
+  },
+  "E 诚实依据待审查": {
+   "3": 20
+  },
+  "E DB 篡改路径构陷": {
+   "0": 20
+  },
+  "E DO 替换依据": {
+   "1": 20
+  },
+  "E DB 伪造回执": {
+   "0": 20
+  },
+  "E 截短路径（内部节点冒充）": {
+   "0": 20
+  },
+  "E DO 签署短路径回执": {
+   "1": 20
+  },
+  "R 过期记录叶子签名无效": {
+   "1": 9
+  },
+  "R 过期记录叶子签名为高 s": {
+   "1": 9
+  },
+  "V DO 少报深度后披露": {
+   "1": 5
+  }
+ },
+ "reference": {
+  "correct": {
+   "2": 28
+  },
+  "stale": {
+   "1": 9
+  },
+  "localDeclaredNational": {
+   "1": 1
+  },
+  "localDeclaredLocal": {
+   "2": 1
+  },
+  "caliberMismatch": {
+   "1": 1
+  },
+  "caliberCompliant": {
+   "2": 1
+  }
+ },
+ "bind": {
+  "full": {
+   "诚实披露": {
+    "不成立": 20
+   },
+   "DB挪用他处披露构陷": {
+    "不予受理": 20
+   },
+   "DB篡改路径构陷": {
+    "不予受理": 20
+   },
+   "DB拼接重复签名构陷": {
+    "不予受理": 20
+   },
+   "诚实依据": {
+    "升级TTP": 20
+   },
+   "DB篡改依据路径构陷": {
+    "不予受理": 20
+   },
+   "DB伪造依据": {
+    "不予受理": 20
+   },
+   "DO替换依据": {
+    "判DO违约": 20
+   }
+  },
+  "noPos": {
+   "诚实披露": {
+    "不成立": 20
+   },
+   "DB挪用他处披露构陷": {
+    "判DO违约": 20
+   },
+   "DB篡改路径构陷": {
+    "不予受理": 20
+   },
+   "DB拼接重复签名构陷": {
+    "判DO违约": 20
+   },
+   "诚实依据": {
+    "升级TTP": 20
+   },
+   "DB篡改依据路径构陷": {
+    "不予受理": 20
+   },
+   "DB伪造依据": {
+    "不予受理": 20
+   },
+   "DO替换依据": {
+    "判DO违约": 20
+   }
+  },
+  "noPath": {
+   "诚实披露": {
+    "不成立": 20
+   },
+   "DB挪用他处披露构陷": {
+    "不予受理": 20
+   },
+   "DB篡改路径构陷": {
+    "判DO违约": 20
+   },
+   "DB拼接重复签名构陷": {
+    "不予受理": 20
+   },
+   "诚实依据": {
+    "升级TTP": 20
+   },
+   "DB篡改依据路径构陷": {
+    "判DO违约": 20
+   },
+   "DB伪造依据": {
+    "不予受理": 20
+   },
+   "DO替换依据": {
+    "判DO违约": 20
+   }
+  },
+  "noRcptA": {
+   "诚实披露": {
+    "不成立": 20
+   },
+   "DB挪用他处披露构陷": {
+    "不予受理": 20
+   },
+   "DB篡改路径构陷": {
+    "不予受理": 20
+   },
+   "DB拼接重复签名构陷": {
+    "不予受理": 20
+   },
+   "诚实依据": {
+    "升级TTP": 20
+   },
+   "DB篡改依据路径构陷": {
+    "判DO违约": 20
+   },
+   "DB伪造依据": {
+    "判DO违约": 20
+   },
+   "DO替换依据": {
+    "判DO违约": 20
+   }
+  },
+  "noRcptB": {
+   "诚实披露": {
+    "不成立": 20
+   },
+   "DB挪用他处披露构陷": {
+    "不予受理": 20
+   },
+   "DB篡改路径构陷": {
+    "不予受理": 20
+   },
+   "DB拼接重复签名构陷": {
+    "不予受理": 20
+   },
+   "诚实依据": {
+    "升级TTP": 20
+   },
+   "DB篡改依据路径构陷": {
+    "不成立": 20
+   },
+   "DB伪造依据": {
+    "不成立": 20
+   },
+   "DO替换依据": {
+    "不成立": 20
+   }
+  }
+ },
+ "table6": {
+  "ours": {
+   "register": 74361,
+   "dispute": 63206,
+   "batch38": 590804,
+   "batchPerRecord": 15547,
+   "outcomes": [
+    2,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2
+   ]
+  },
+  "unpacked": {
+   "register": 889948,
+   "dispute": 54126,
+   "agreeWithOurs": true
+  },
+  "packed": {
+   "register": 174013,
+   "dispute": 54412,
+   "agreeWithOurs": true,
+   "batch38": 557927,
+   "batchPerRecord": 14682
+  },
+  "baseline": {
+   "admission": 82337,
+   "verdict": 44187,
+   "total": 126524
+  },
+  "breakEven": {
+   "unpacked": 89.8,
+   "packed": 11.3,
+   "packedBatchPerRecordDiff": 865
+  }
+ },
+ "batch": {
+  "b1": {
+   "records": 1,
+   "faults": 1,
+   "gas": 88208,
+   "perRecord": 88208
+  },
+  "b2": {
+   "records": 2,
+   "faults": 2,
+   "gas": 103835,
+   "perRecord": 51918
+  },
+  "b5": {
+   "records": 5,
+   "faults": 5,
+   "gas": 150840,
+   "perRecord": 30168
+  },
+  "wrong10": {
+   "records": 10,
+   "faults": 10,
+   "gas": 251164,
+   "perRecord": 25116
+  },
+  "b20": {
+   "records": 20,
+   "faults": 10,
+   "gas": 372170,
+   "perRecord": 18609
+  },
+  "all38": {
+   "records": 38,
+   "faults": 10,
+   "gas": 590840,
+   "perRecord": 15548
+  }
+ },
+ "cases": [
+  {
+   "name": "宁波柏厨（2020）初始报告",
+   "year": 2020,
+   "src": 4,
+   "reg": 3,
+   "v": 0.7921,
+   "mwh": 8157,
+   "other": 0,
+   "report": 6461.16,
+   "tally": {
+    "判DO违约": 20
+   },
+   "gas": 52129,
+   "emission": 6461.16,
+   "match": true
+  },
+  {
+   "name": "宁波柏厨（2020）核查后",
+   "year": 2020,
+   "src": 4,
+   "reg": 3,
+   "v": 0.7035,
+   "mwh": 8157,
+   "other": 0,
+   "report": 5738.45,
+   "tally": {
+    "质疑不成立": 20
+   },
+   "gas": 52031,
+   "emission": 5738.45,
+   "match": true
+  },
+  {
+   "name": "宁波李氏（2021）初始报告",
+   "year": 2021,
+   "src": 5,
+   "reg": 1,
+   "v": 0.7035,
+   "mwh": 2129.4,
+   "other": 10.16,
+   "report": 1508.19,
+   "tally": {
+    "判DO违约": 20
+   },
+   "gas": 52117,
+   "emission": 1508.19,
+   "match": true
+  },
+  {
+   "name": "宁波李氏（2021）核查后",
+   "year": 2021,
+   "src": 5,
+   "reg": 1,
+   "v": 0.64,
+   "mwh": 2129.4,
+   "other": 10.16,
+   "report": 1372.98,
+   "tally": {
+    "质疑不成立": 20
+   },
+   "gas": 52007,
+   "emission": 1372.98,
+   "match": true
+  },
+  {
+   "name": "河南华东工控（2024）",
+   "listed": 0.5633,
+   "entries": 38,
+   "tally": {
+    "判DO违约": 38
+   },
+   "control": {
+    "质疑不成立": 20
+   },
+   "em_listed": 97.73,
+   "em_national": 93.1,
+   "report": 93.1
+  }
+ ],
+ "scaleN": {
+  "Ns": [
+   10,
+   50,
+   100,
+   200,
+   500,
+   1000,
+   2000,
+   4000,
+   5000,
+   10000,
+   100000
+  ],
+  "dispute": {
+   "10": {
+    "gas": 56016,
+    "depth": 4
+   },
+   "50": {
+    "gas": 57653,
+    "depth": 6
+   },
+   "100": {
+    "gas": 58532,
+    "depth": 7
+   },
+   "200": {
+    "gas": 59351,
+    "depth": 8
+   },
+   "500": {
+    "gas": 60182,
+    "depth": 9
+   },
+   "1000": {
+    "gas": 61001,
+    "depth": 10
+   },
+   "2000": {
+    "gas": 61832,
+    "depth": 11
+   },
+   "4000": {
+    "gas": 62687,
+    "depth": 12
+   },
+   "5000": {
+    "gas": 63482,
+    "depth": 13
+   },
+   "10000": {
+    "gas": 64326,
+    "depth": 14
+   },
+   "100000": {
+    "gas": 66820,
+    "depth": 17
+   }
+  },
+  "register": {
+   "10": 97096,
+   "50": 97120,
+   "100": 97120,
+   "200": 97108,
+   "500": 97120,
+   "1000": 97120,
+   "2000": 97120,
+   "4000": 97120,
+   "5000": 97108,
+   "10000": 97120,
+   "100000": 97132
+  },
+  "full": {
+   "10": 43266,
+   "50": 104639,
+   "100": 180394,
+   "200": 331971,
+   "500": 790046,
+   "1000": 1566562,
+   "2000": 3166212,
+   "4000": 6551629,
+   "5000": "超出区块上限"
+  },
+  "sizes": {
+   "10": {
+    "dualTree": 303,
+    "singleTree": 367,
+    "wholeHash": 1740
+   },
+   "50": {
+    "dualTree": 367,
+    "singleTree": 431,
+    "wholeHash": 8700
+   },
+   "100": {
+    "dualTree": 399,
+    "singleTree": 463,
+    "wholeHash": 17400
+   },
+   "200": {
+    "dualTree": 431,
+    "singleTree": 495,
+    "wholeHash": 34800
+   },
+   "500": {
+    "dualTree": 463,
+    "singleTree": 527,
+    "wholeHash": 87000
+   },
+   "1000": {
+    "dualTree": 495,
+    "singleTree": 559,
+    "wholeHash": 174000
+   },
+   "2000": {
+    "dualTree": 527,
+    "singleTree": 591,
+    "wholeHash": 348000
+   },
+   "4000": {
+    "dualTree": 559,
+    "singleTree": 623,
+    "wholeHash": 696000
+   },
+   "5000": {
+    "dualTree": 591,
+    "singleTree": 655,
+    "wholeHash": 870000
+   },
+   "10000": {
+    "dualTree": 623,
+    "singleTree": 687,
+    "wholeHash": 1740000
+   },
+   "100000": {
+    "dualTree": 719,
+    "singleTree": 783,
+    "wholeHash": 17400000
+   }
+  },
+  "fitDispute": {
+   "slope": 831.0577164366375,
+   "intercept": 52694.0539523212,
+   "r2": 0.9999798164252727,
+   "maxRes": 27.400250941020204
+  },
+  "fitFull": {
+   "slope": 1625.811334374068,
+   "intercept": -5519.761022521881,
+   "r2": 0.999580532031778,
+   "maxRes": 79890.9077256145
+  },
+  "vsFull4000": 99
+ },
+ "compare": {
+  "ours": 63206,
+  "fairdtFaithful": 606921,
+  "fairdtFaithfulHonest": 592764,
+  "fairdtBatched": 310055,
+  "fairdtBatchedHonest": 295899,
+  "chenRepro": 77778,
+  "chenPaper": 67637,
+  "chenReproOn": 34000,
+  "chenReproOff": 43778,
+  "chenPaperOn": 32602,
+  "chenPaperOff": 35035,
+  "zk": 267488,
+  "zkProveMs": 207,
+  "groth16LowerBound": 202000,
+  "baseline": 126524,
+  "reduction": {
+   "vsFairdtFaithful": 89.6,
+   "vsFairdtBatched": 79.6,
+   "vsFairdtPaper700k": 91,
+   "vsZk": 76.4,
+   "vsGroth16LB": 68.7,
+   "vsChenRepro": 18.7,
+   "vsChenPaper": 6.6,
+   "vsBaseline": 50
+  }
+ }
+}
