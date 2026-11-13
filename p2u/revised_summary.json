@@ -639,15 +639,45 @@
   "zkProveMs": 207,
   "groth16LowerBound": 202000,
   "baseline": 126524,
+  "oursDoFault": 72028,
+  "oursNotEstablished": 60056,
   "reduction": {
-   "vsFairdtFaithful": 89.6,
-   "vsFairdtBatched": 79.6,
-   "vsFairdtPaper700k": 91,
-   "vsZk": 76.4,
-   "vsGroth16LB": 68.7,
-   "vsChenRepro": 18.7,
-   "vsChenPaper": 6.6,
-   "vsBaseline": 50
+   "doFault": {
+    "vsFairdtFaithful": 88.1,
+    "vsFairdtBatched": 76.8,
+    "vsFairdtPaper700k": 89.7,
+    "vsBaseline": 43.1,
+    "vsChenRepro": 7.4,
+    "vsChenPaper": -6.5
+   },
+   "notEstablished": {
+    "vsFairdtFaithful": 89.9,
+    "vsFairdtBatched": 79.7,
+    "vsZk": 77.5,
+    "vsGroth16LB": 70.3
+   }
   }
+ },
+ "outcome": {
+  "disputes": 38,
+  "doFault": {
+   "n": 10,
+   "avg": 72028,
+   "min": 68596,
+   "max": 85710
+  },
+  "notEstablished": {
+   "n": 28,
+   "avg": 60056,
+   "min": 60008,
+   "max": 60094
+  },
+  "avgAll": 63206
+ },
+ "batchSig": {
+  "perRecordSig": 20872,
+  "rootOnly": 15548,
+  "reductionPct": 25.5,
+  "sameRulings": true
  }
 }

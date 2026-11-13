@@ -1,0 +1,16 @@
+{
+ "disputes": 38,
+ "doFault": {
+  "n": 10,
+  "avg": 72028,
+  "min": 68596,
+  "max": 85710
+ },
+ "notEstablished": {
+  "n": 28,
+  "avg": 60056,
+  "min": 60008,
+  "max": 60094
+ },
+ "avgAll": 63206
+}

@@ -1,0 +1,15 @@
+{
+ "records": 38,
+ "rootOnly": {
+  "gas": 590684,
+  "perRecord": 15544,
+  "faults": 10
+ },
+ "perRecordSig": {
+  "gas": 793151,
+  "perRecord": 20872,
+  "faults": 10
+ },
+ "sameRulings": true,
+ "reductionPct": 25.5
+}

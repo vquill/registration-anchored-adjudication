@@ -3,14 +3,15 @@ pragma solidity ^0.8.20;
 import "./Verifier.sol";
 
 /// 零知识路线的争议合约（与本文的引用一致性裁决功能对等）：
-/// ① 记录承诺 recCommit 属于 DO 已登记的数据集（keccak Merkle 证明，深度与本文相同）；② Groth16 证明有效
+/// ① 记录承诺 recCommit 属于 DO 已登记的数据集（keccak Merkle 证明，深度与本文相同）；② Groth16 证明有效，且证明所用的权威因子表根为 RA 登记的树根
 contract ZkReferenceDispute {
     Groth16Verifier public immutable v;
+    uint256 private immutable LIB_ROOT;          // 权威因子表的 Poseidon 树根，由 RA 部署时登记，DO 不能自行指定
     struct Dataset { address owner; uint32 depth; bytes32 rootV; uint256 libRoot; }
     mapping(uint256 => Dataset) public ds;
     event Ruling(uint256 indexed id, uint32 i, uint8 layer, uint8 outcome);
-    constructor(address _v) { v = Groth16Verifier(_v); }
-    function registerDataset(uint256 id, uint32 depth, bytes32 rootV, uint256 libRoot) external { ds[id] = Dataset(msg.sender, depth, rootV, libRoot); }
+    constructor(address _v, uint256 libRoot) { v = Groth16Verifier(_v); LIB_ROOT = libRoot; }
+    function registerDataset(uint256 id, uint32 depth, bytes32 rootV) external { ds[id] = Dataset(msg.sender, depth, rootV, LIB_ROOT); }
     function _root(bytes32 leaf, uint32 i, bytes32[] calldata p) internal pure returns (bytes32 h) {
         h = leaf;
         for (uint256 k = 0; k < p.length; k++) h = ((i >> k) & 1) == 0 ? keccak256(abi.encodePacked(h, p[k])) : keccak256(abi.encodePacked(p[k], h));

@@ -21,9 +21,9 @@ const sc=x=>Math.round(x*10000), M=names.length, D=6, WASM='zk/ref.wasm', ZKEY='
  const o=JSON.parse(solc.compile(JSON.stringify({language:'Solidity',sources:src,settings:{optimizer:{enabled:true,runs:200},evmVersion:'paris',outputSelection:{'*':{'*':['abi','evm.bytecode.object']}}}})));
  const er=(o.errors||[]).filter(x=>x.severity==='error'); if(er.length){er.forEach(x=>console.error(x.formattedMessage));process.exit(1)}
  const env=await makeEnv('merge'); const dep=async(c,args=[])=>{const f=new ethers.ContractFactory(c.abi,'0x'+c.evm.bytecode.object,env.s.TTP);const x=await f.deploy(...args);await x.waitForDeployment();return x;};
- const V=await dep(o.contracts['Verifier.sol'].Groth16Verifier); const Z=await dep(o.contracts['ZkDispute.sol'].ZkReferenceDispute,[await V.getAddress()]);
+ const V=await dep(o.contracts['Verifier.sol'].Groth16Verifier); const Z=await dep(o.contracts['ZkDispute.sol'].ZkReferenceDispute,[await V.getAddress(),libRoot]);   // 权威因子表根由 RA（与其他测试相同，以 TTP 账户代表）登记
  const IZ=new ethers.Interface(o.contracts['ZkDispute.sol'].ZkReferenceDispute.abi);
- await (await Z.connect(env.s.DO).registerDataset(id,dd,TV[dd][0],libRoot)).wait();
+ await (await Z.connect(env.s.DO).registerDataset(id,dd,TV[dd][0])).wait();
  const res={proved:0,cannotProve:0,proveMs:[],gas:[],outcomes:{}};
  for(let i=0;i<M;i++){
    const input={root:libRoot.toString(),recCommit:rec[i].toString(),id:id.toString(),i:String(i),year:'2022',region:String(i),value:String(sc(vals[i])),salt:salts[i].toString(),pathIdx:String(i),sib:sib(i)};
