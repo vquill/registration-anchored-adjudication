@@ -26,10 +26,10 @@ node p2u/zk_test.js                  # 零知识对照（Groth16）
 | 表图 | 脚本 | 结果文件 |
 |---|---|---|
 | 表1、图3 | revised_scale_test.js | revised_scale_result.json（scaleN） |
-| 表2、表4、各操作 Gas | revised_fix_test.js | revised_result.json |
+| 表2（本文列）、表4、各操作 Gas | revised_fix_test.js | revised_result.json |
 | 表3 | revised_batch_realcase_test.js | revised_batch_realcase_result.json（cases） |
 | 图4 | revised_batch_realcase_test.js | revised_batch_realcase_result.json（batch） |
-| 表5、图5 | fairdt_test.js、fairdt_batched_test.js、chen_test.js、zk_test.js、revised_fix_test.js | fairdt_result.json、fairdt_batched_result.json、chen_result.json、zk_result.json |
+| 图5 | fairdt_test.js、fairdt_batched_test.js、chen_test.js、zk_test.js、revised_scale_test.js | fairdt_result.json、fairdt_batched_result.json、chen_result.json、zk_result.json、revised_scale_result.json（table6，本文与基线方案） |
 | 表6 | revised_scale_test.js | revised_scale_result.json（table6） |
 | 4.5、4.6 节按判定结果分列的来源争议开销 | revised_outcome_test.js | revised_outcome_result.json |
 | 4.5 节逐条验签对照 | revised_batchsig_test.js | revised_batchsig_result.json |
